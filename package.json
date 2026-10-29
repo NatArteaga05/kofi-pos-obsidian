@@ -1,0 +1,13 @@
+{
+  "name": "kofi-pos-obsidian",
+  "private": true,
+  "description": "Bóveda de Obsidian con el mapa de Kofi POS, generado desde su repositorio",
+  "type": "module",
+  "scripts": {
+    "mapa": "node scripts/generar-mapa.mjs",
+    "mapa:actualizar": "node scripts/generar-mapa.mjs --fetch"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

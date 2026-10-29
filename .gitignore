@@ -1,0 +1,5 @@
+# Estado local de Obsidian (paneles abiertos, archivos recientes)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.trash/
+node_modules/
