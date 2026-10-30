@@ -1,6 +1,6 @@
 ---
 tags:
-  - base-datos
+  - tabla
 ---
 
 # Base de datos
@@ -21,13 +21,13 @@ erDiagram
   sale_counter {}
 ```
 
-| Tabla | Migración | Referencia a | La usan |
+| Tabla | Migración | Referencia a | Archivos que la usan |
 | --- | --- | --- | --- |
-| `users` | [001_auth.sql](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/apps/api/src/shared/database/migrations/001_auth.sql) | — | [[Módulo Acceso (auth)\|auth]] |
-| `failed_logins` | [001_auth.sql](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/apps/api/src/shared/database/migrations/001_auth.sql) | users (user_id) | [[Módulo Acceso (auth)\|auth]] |
-| `sessions` | [001_auth.sql](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/apps/api/src/shared/database/migrations/001_auth.sql) | users (user_id) | [[Módulo Acceso (auth)\|auth]] |
-| `categories` | [002_menu.sql](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/apps/api/src/shared/database/migrations/002_menu.sql) | — | [[Módulo Menú (menu)\|menu]] |
-| `products` | [002_menu.sql](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/apps/api/src/shared/database/migrations/002_menu.sql) | categories (category_id) | [[Módulo Menú (menu)\|menu]] |
-| `sale_counter` | [003_sales.sql](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/apps/api/src/shared/database/migrations/003_sales.sql) | — | [[Módulo Ventas (sales)\|sales]] |
-| `sales` | [003_sales.sql](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/apps/api/src/shared/database/migrations/003_sales.sql) | users (registered_by_user_id) | [[Módulo Ventas (sales)\|sales]] |
-| `sale_lines` | [003_sales.sql](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/apps/api/src/shared/database/migrations/003_sales.sql) | sales (sale_id), products (product_id) | [[Módulo Ventas (sales)\|sales]] |
+| [[Tabla users]] | [001_auth.sql](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/apps/api/src/shared/database/migrations/001_auth.sql) | — | 2 |
+| [[Tabla failed_logins]] | [001_auth.sql](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/apps/api/src/shared/database/migrations/001_auth.sql) | [[Tabla users]] | 1 |
+| [[Tabla sessions]] | [001_auth.sql](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/apps/api/src/shared/database/migrations/001_auth.sql) | [[Tabla users]] | 1 |
+| [[Tabla categories]] | [002_menu.sql](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/apps/api/src/shared/database/migrations/002_menu.sql) | — | 3 |
+| [[Tabla products]] | [002_menu.sql](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/apps/api/src/shared/database/migrations/002_menu.sql) | [[Tabla categories]] | 3 |
+| [[Tabla sale_counter]] | [003_sales.sql](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/apps/api/src/shared/database/migrations/003_sales.sql) | — | 3 |
+| [[Tabla sales]] | [003_sales.sql](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/apps/api/src/shared/database/migrations/003_sales.sql) | [[Tabla users]] | 2 |
+| [[Tabla sale_lines]] | [003_sales.sql](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/apps/api/src/shared/database/migrations/003_sales.sql) | [[Tabla sales]], [[Tabla products]] | 1 |

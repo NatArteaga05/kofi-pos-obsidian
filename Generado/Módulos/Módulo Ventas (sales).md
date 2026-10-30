@@ -21,49 +21,51 @@ tags:
 
 ## Contrato
 
-- [packages/contracts/src/sales.ts](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/packages/contracts/src/sales.ts) — ver [[Contratos]]
+- [[sales.ts (contracts)]] — ver [[Contratos]]
 
-## API
+## Rutas de la API
 
-Carpeta: [apps/api/src/modules/sales](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/api/src/modules/sales) · 12 archivos de código y 14 de pruebas.
+- [[POST ∕api∕sales∕quote]]
+- [[POST ∕api∕sales]]
 
-| Método | Ruta |
-| --- | --- |
-| POST | `/api/sales/quote` |
-| POST | `/api/sales` |
+## Pantallas
 
-- `demo-sales.calendar.ts`
-- `demo-sales.cli.ts`
-- `demo-sales.generator.ts`
-- `demo-sales.random.ts`
-- `demo-sales.rules.ts`
-- `demo-sales.service.ts`
-- `index.ts`
-- `sales-seed.cli.ts`
-- `sales.pricing.ts`
-- `sales.repository.ts`
-- `sales.routes.ts`
-- `sales.service.ts`
+- [[Pantalla ∕ventas∕nueva]]
 
-### Tablas que usa
+## Tablas
 
-- `sale_counter` (003_sales.sql)
-- `sales` (003_sales.sql)
-- `sale_lines` (003_sales.sql)
+- [[Tabla sale_counter]]
+- [[Tabla sales]]
+- [[Tabla sale_lines]]
 
-Ver [[Base de datos]].
+## API — [carpeta](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/api/src/modules/sales)
 
-## Interfaz
+- [[demo-sales.calendar.ts (api sales)]]
+- [[demo-sales.cli.ts (api sales)]]
+- [[demo-sales.generator.ts (api sales)]]
+- [[demo-sales.random.ts (api sales)]]
+- [[demo-sales.rules.ts (api sales)]]
+- [[demo-sales.service.ts (api sales)]]
+- [[index.ts (api sales)]]
+- [[sales-seed.cli.ts (api sales)]]
+- [[sales.pricing.ts (api sales)]]
+- [[sales.repository.ts (api sales)]]
+- [[sales.routes.ts (api sales)]]
+- [[sales.service.ts (api sales)]]
 
-Carpeta: [apps/web/src/modules/sales](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/web/src/modules/sales) · 15 archivos de código y 10 de pruebas.
+## Interfaz — [carpeta](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/web/src/modules/sales)
 
-| Ruta | Página | Roles | Enlace de inicio |
-| --- | --- | --- | --- |
-| `/ventas/nueva` | NewSalePage | owner, cashier | Nueva venta |
-
-- **api/** `SalesClientProvider.tsx`, `sales-client.ts`
-- **components/** `DiscardSaleDialog.tsx`, `PaymentMethodPicker.tsx`, `ProductPicker.tsx`, `SaleConfirmation.tsx`, `SaleDraftLines.tsx`
-- **dev/** `ScenarioPicker.tsx`, `fixtures.ts`, `sales-demo-client.ts`
-- **(raíz)** `index.ts`
-- **pages/** `NewSalePage.css`, `NewSalePage.tsx`
-- **state/** `draft-store.ts`, `useSaleDraft.ts`
+- [[SalesClientProvider.tsx (web sales api)]]
+- [[sales-client.ts (web sales api)]]
+- [[DiscardSaleDialog.tsx (web sales components)]]
+- [[PaymentMethodPicker.tsx (web sales components)]]
+- [[ProductPicker.tsx (web sales components)]]
+- [[SaleConfirmation.tsx (web sales components)]]
+- [[SaleDraftLines.tsx (web sales components)]]
+- [[ScenarioPicker.tsx (web sales dev)]]
+- [[fixtures.ts (web sales dev)]]
+- [[sales-demo-client.ts (web sales dev)]]
+- [[index.ts (web sales)]]
+- [[NewSalePage.tsx (web sales pages)]]
+- [[draft-store.ts (web sales state)]]
+- [[useSaleDraft.ts (web sales state)]]

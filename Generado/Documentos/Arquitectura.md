@@ -101,7 +101,7 @@ render.yaml                      despliegue en Render (§6.5)
 - **Mismo nombre de dominio en las dos aplicaciones y en el contrato:** `auth`, `menu`, `sales`, `dashboard` y `history`.
 - **Nombres del negocio, en inglés:** `menu` y no `catalog`, porque en una cafetería se habla del menú. Los componentes de interfaz que también se llamen «menú» (navegación, desplegables) usan nombres específicos, como `NavMenu`, y nunca van dentro de `modules/menu/`.
 - **Un módulo no importa los archivos internos de otro.** Lo común va a `shared/`.
-- **Datos de otro módulo en la API:** un módulo puede recibir como función, desde `app.ts`, lo que exporta el `index.ts` de otro (por ejemplo, Ventas recibe `getCurrentMenu` del menú), para probarse sin él y no depender de cuándo se implementa ([[SPEC-003 Ventas|SPEC-003]], D-1).
+- **Datos de otro módulo en la API:** un módulo puede recibir como función, desde [[app.ts (api)|app.ts]], lo que exporta el `index.ts` de otro (por ejemplo, Ventas recibe `getCurrentMenu` del menú), para probarse sin él y no depender de cuándo se implementa ([[SPEC-003 Ventas|SPEC-003]], D-1).
 - **Superficie pública:** cada módulo, en las dos aplicaciones, expone un `index.ts`, y los demás módulos importan solo de ahí. Una regla `no-restricted-imports` de ESLint lo comprueba.
 - **Pruebas junto al código:** `*.test.ts` (unitarias) y `*.integration.test.ts` (integración).
 
@@ -109,16 +109,16 @@ render.yaml                      despliegue en Render (§6.5)
 
 | Aplicación | Convención | Ejemplo |
 | --- | --- | --- |
-| `apps/api` | **Archivos planos con sufijo de capa.** Subcarpeta solo a partir de **tres o más archivos de la misma capa** | `menu/products.routes.ts`, `products.service.ts`, `products.model.ts` |
+| `apps/api` | **Archivos planos con sufijo de capa.** Subcarpeta solo a partir de **tres o más archivos de la misma capa** | `menu/products.routes.ts`, [[products.service.ts (api menu)\|products.service.ts]], `products.model.ts` |
 | `apps/web` | **Subcarpetas por tipo** | `menu/api/`, `menu/components/`, `menu/pages/`, `sales/state/` y `dev/` |
 
 | Tipo | Convención | Ejemplo |
 | --- | --- | --- |
-| Componentes de interfaz | `PascalCase` | `ProductForm.tsx` |
+| Componentes de interfaz | `PascalCase` | [[ProductForm.tsx (web menu components)\|ProductForm.tsx]] |
 | Hooks de interfaz | `useAlgo` | `useSalesOrder.ts` |
-| Otros archivos de la interfaz | `kebab-case` | `menu-client.ts` |
-| API | `<entidad>.<capa>` | `products.service.ts` |
-| Contratos | `<módulo>` | `menu.ts` |
+| Otros archivos de la interfaz | `kebab-case` | [[menu-client.ts (web menu api)\|menu-client.ts]] |
+| API | `<entidad>.<capa>` | [[products.service.ts (api menu)\|products.service.ts]] |
+| Contratos | `<módulo>` | [[menu.ts (contracts)\|menu.ts]] |
 
 ### 4.4 Contratos (`packages/contracts`)
 
@@ -167,20 +167,20 @@ Adoptadas en [[SPEC-001 Acceso|specs/001-acceso/plan.md]] y, donde se indica, en
 - Toda ruta protegida de cualquier módulo usa `requireSession`, que exporta el módulo `auth` de la API. Ante una sesión inválida responde `401` con `SESSION_MISSING`, `SESSION_EXPIRED` o `SESSION_TERMINATED`.
 - Las respuestas de la API llevan `Cache-Control: no-store`.
 - Una ruta restringida por rol responde `403 FORBIDDEN` con el mensaje de su módulo (por ejemplo, «No tienes permiso para administrar el menú»), y la interfaz muestra ese mensaje. La comprobación del rol vive en el módulo, después de `requireSession` ([[SPEC-002 Menú|SPEC-002]], D-9).
-- **Trabajo sin guardar al terminar la sesión:** `SessionProvider` recibe `onSessionEnd(reason)` desde `routes.tsx` y lo llama al cerrar sesión (`'logout'`) y cuando la sesión termina por un cambio de la cuenta (`'terminated'`), no al vencer. Cada módulo decide ahí qué descarta, sin modificar `auth` ([[SPEC-003 Ventas|SPEC-003]], D-9).
+- **Trabajo sin guardar al terminar la sesión:** `SessionProvider` recibe `onSessionEnd(reason)` desde [[routes.tsx (web)|routes.tsx]] y lo llama al cerrar sesión (`'logout'`) y cuando la sesión termina por un cambio de la cuenta (`'terminated'`), no al vencer. Cada módulo decide ahí qué descarta, sin modificar `auth` ([[SPEC-003 Ventas|SPEC-003]], D-9).
 
 ### 6.3 Errores
 
-- Formato común, definido en `packages/contracts/src/errors.ts`: `{ error: { code, message, fields?, … } }`.
+- Formato común, definido en [[errors.ts (contracts)|packages/contracts/src/errors.ts]]: `{ error: { code, message, fields?, … } }`.
 - `code` es estable y en inglés (`INVALID_CREDENTIALS`); la interfaz lo usa para decidir qué hacer.
 - `message` está en español, lo arma la API y la interfaz lo muestra tal cual.
 
 ### 6.4 Datos
 
 - Solo `apps/api/src/shared/database` habla con PostgreSQL, mediante la interfaz `Database` (`query`, `transaction`), con un adaptador de `pg` en producción y otro de PGlite en pruebas.
-- Las migraciones son archivos SQL numerados en `apps/api/src/shared/database/migrations/` (`NNN_<nombre>.sql`). `migrate.ts` aplica en orden las pendientes y las registra en `schema_migrations`.
-- La hora de la API sale solo de `shared/clock.ts`, que las pruebas reemplazan por un reloj falso.
-- Un comando que la persona ejecuta desde su computadora contra una base (por ejemplo, `load:demo-sales`) toma «ahora» de PostgreSQL (`SELECT now()`), no del reloj de la computadora. Adoptado en [[SPEC-007 Ventas de demostración|SPEC-007]] (D-3).
+- Las migraciones son archivos SQL numerados en `apps/api/src/shared/database/migrations/` (`NNN_<nombre>.sql`). [[migrate.ts (api shared database)|migrate.ts]] aplica en orden las pendientes y las registra en `schema_migrations`.
+- La hora de la API sale solo de [[clock.ts (api shared)|shared/clock.ts]], que las pruebas reemplazan por un reloj falso.
+- Un comando que la persona ejecuta desde su computadora contra una base (por ejemplo, `load:demo-sales`) toma «ahora» de PostgreSQL (`SELECT now()`), no del reloj de la computadora. Adoptado en [[SPEC-007 Ventas de demostración|SPEC-007]] ([[SPEC-007 D-3 — «Hoy» sale de PostgreSQL|D-3]]).
 
 ### 6.5 Despliegue
 
@@ -192,23 +192,23 @@ Adoptadas en [[SPEC-001 Acceso|specs/001-acceso/plan.md]] y, donde se indica, en
 
 ### 6.6 Rutas de la interfaz
 
-- Las rutas se declaran en `apps/web/src/routes.tsx` con `react-router`.
+- Las rutas se declaran en [[routes.tsx (web)|apps/web/src/routes.tsx]] con `react-router`.
 - Cada ruta protegida declara los roles que pueden verla (`roles`; por defecto, `owner` y `cashier`). La interfaz solo usa esa lista para navegar y para no mostrar lo que el rol no puede ver; los permisos reales los aplica la API en cada módulo.
-- Una ruta protegida puede declarar `homeLink` (el texto de su enlace). La pantalla inicial recibe esos enlaces desde `routes.tsx` y muestra los que el rol de la sesión puede ver, así que ningún módulo modifica `auth` para añadir el suyo ([[SPEC-002 Menú|SPEC-002]], D-8).
+- Una ruta protegida puede declarar `homeLink` (el texto de su enlace). La pantalla inicial recibe esos enlaces desde [[routes.tsx (web)|routes.tsx]] y muestra los que el rol de la sesión puede ver, así que ningún módulo modifica `auth` para añadir el suyo ([[SPEC-002 Menú|SPEC-002]], D-8).
 - La clave de pantalla para comprobar la sesión es el patrón declarado de la ruta. Cambiar los parámetros de una consulta dentro de ese patrón conserva la pantalla y sus datos mientras la API valida la siguiente petición; abrir, recargar o cambiar de pantalla comprueba la sesión. Todo 401 de la API mantiene la invalidación global y el regreso a la URL completa tras el vencimiento ([[SPEC-005 Historial y reportes|SPEC-005]], T026, plan §18; RF-5/RF-6).
 
 ### 6.7 Importes
 
 - Los importes en bolivianos se guardan (`integer`) y viajan en el contrato como **centavos enteros** (por ejemplo, `priceCents: 1250`), para que las sumas sean exactas.
 - Se muestran siempre con `formatPrice` de `packages/contracts`: «Bs 12,50», con dos decimales, coma decimal y sin separador de miles. Formatear no es calcular: las sumas y los totales los hace la API (constitución, principio 3).
-- Adoptado en [[SPEC-002 Menú|SPEC-002]] (D-2).
+- Adoptado en [[SPEC-002 Menú|SPEC-002]] ([[SPEC-002 D-2 — Precios en centavos enteros|D-2]]).
 
 ### 6.8 Fechas y horas
 
-- La API toma la hora solo de `shared/clock.ts` (§6.4) y la guarda como `timestamptz`.
+- La API toma la hora solo de [[clock.ts (api shared)|shared/clock.ts]] (§6.4) y la guarda como `timestamptz`.
 - En el contrato viaja como texto ISO 8601 en UTC (por ejemplo, `registeredAt: "2026-10-24T18:05:12.000Z"`).
 - Se muestra siempre con `formatDateTime` de `packages/contracts`, en hora de Bolivia (`America/La_Paz`): «24/10/2026 14:05», con día, mes, hora y minutos de dos cifras y la hora en formato de 24 horas.
-- Adoptado en [[SPEC-003 Ventas|SPEC-003]] (D-7).
-- **Días y meses:** qué es «hoy» y «el mes en curso» en hora de Bolivia lo decide la API con `apps/api/src/shared/calendar.ts`, a partir de `clock.ts`, nunca la interfaz con la hora de la computadora. Las fechas sin hora y los meses viajan como `YYYY-MM-DD` y `YYYY-MM`, ya en hora de Bolivia, y se muestran con `formatDate` («24/10/2026») y `formatMonth` («Octubre de 2026») de `packages/contracts`. Adoptado en [[SPEC-004 Dashboard|SPEC-004]] (D-4, D-5).
-- **Navegación por fechas:** la interfaz no hace aritmética de fechas. Cuando necesita el día o el mes anterior o siguiente, el día de hoy o el día de un instante, los recibe de la API, calculados con `shared/calendar.ts`. Adoptado en [[SPEC-005 Historial y reportes|SPEC-005]] (D-4).
-- **Horas y roles:** una hora sin fecha se muestra con `formatTime` («14:05», en hora de Bolivia) y el nombre de un rol con `formatRole` («Dueño», «Cajero»), los dos de `packages/contracts`. Adoptado en [[SPEC-005 Historial y reportes|SPEC-005]] (D-5).
+- Adoptado en [[SPEC-003 Ventas|SPEC-003]] ([[SPEC-003 D-7 — Fechas como ISO 8601 en UTC|D-7]]).
+- **Días y meses:** qué es «hoy» y «el mes en curso» en hora de Bolivia lo decide la API con [[calendar.ts (api shared)|apps/api/src/shared/calendar.ts]], a partir de [[clock.ts (api shared)|clock.ts]], nunca la interfaz con la hora de la computadora. Las fechas sin hora y los meses viajan como `YYYY-MM-DD` y `YYYY-MM`, ya en hora de Bolivia, y se muestran con `formatDate` («24/10/2026») y `formatMonth` («Octubre de 2026») de `packages/contracts`. Adoptado en [[SPEC-004 Dashboard|SPEC-004]] ([[SPEC-004 D-4 — shared∕calendar.ts en la API|D-4]], [[SPEC-004 D-5 — formatDate y formatMonth en el contrato|D-5]]).
+- **Navegación por fechas:** la interfaz no hace aritmética de fechas. Cuando necesita el día o el mes anterior o siguiente, el día de hoy o el día de un instante, los recibe de la API, calculados con [[calendar.ts (api shared)|shared/calendar.ts]]. Adoptado en [[SPEC-005 Historial y reportes|SPEC-005]] ([[SPEC-005 D-4 — shared∕calendar.ts crece con addDays, addMonths,…|D-4]]).
+- **Horas y roles:** una hora sin fecha se muestra con `formatTime` («14:05», en hora de Bolivia) y el nombre de un rol con `formatRole` («Dueño», «Cajero»), los dos de `packages/contracts`. Adoptado en [[SPEC-005 Historial y reportes|SPEC-005]] ([[SPEC-005 D-5 — formatTime en datetime.ts|D-5]]).

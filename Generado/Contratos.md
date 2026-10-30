@@ -1,6 +1,6 @@
 ---
 tags:
-  - contrato
+  - modulo
 ---
 
 # Contratos
@@ -10,13 +10,13 @@ tags:
 
 Paquete `@kofi/contracts`: esquemas de Zod y sus tipos. La API los usa para validar y la interfaz para tipar ([[Arquitectura]] §4.4).
 
-| Archivo | Módulo |
-| --- | --- |
-| [auth.ts](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/packages/contracts/src/auth.ts) | [[Módulo Acceso (auth)\|auth]] |
-| [dashboard.ts](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/packages/contracts/src/dashboard.ts) | [[Módulo Dashboard (dashboard)\|dashboard]] |
-| [datetime.ts](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/packages/contracts/src/datetime.ts) | compartido |
-| [errors.ts](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/packages/contracts/src/errors.ts) | compartido |
-| [history.ts](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/packages/contracts/src/history.ts) | [[Módulo Historial y reportes (history)\|history]] |
-| [index.ts](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/packages/contracts/src/index.ts) | compartido |
-| [menu.ts](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/packages/contracts/src/menu.ts) | [[Módulo Menú (menu)\|menu]] |
-| [sales.ts](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/packages/contracts/src/sales.ts) | [[Módulo Ventas (sales)\|sales]] |
+| Archivo | Módulo | Lo importan |
+| --- | --- | --- |
+| [[auth.ts (contracts)\|auth.ts]] | [[Módulo Acceso (auth)\|auth]] | 4 |
+| [[dashboard.ts (contracts)\|dashboard.ts]] | [[Módulo Dashboard (dashboard)\|dashboard]] | 2 |
+| [[datetime.ts (contracts)\|datetime.ts]] | compartido | 1 |
+| [[errors.ts (contracts)\|errors.ts]] | compartido | 1 |
+| [[history.ts (contracts)\|history.ts]] | [[Módulo Historial y reportes (history)\|history]] | 1 |
+| [[index.ts (contracts)\|index.ts]] | compartido | 83 |
+| [[menu.ts (contracts)\|menu.ts]] | [[Módulo Menú (menu)\|menu]] | 2 |
+| [[sales.ts (contracts)\|sales.ts]] | [[Módulo Ventas (sales)\|sales]] | 3 |

@@ -21,54 +21,57 @@ tags:
 
 ## Contrato
 
-- [packages/contracts/src/menu.ts](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/packages/contracts/src/menu.ts) — ver [[Contratos]]
+- [[menu.ts (contracts)]] — ver [[Contratos]]
 
-## API
+## Rutas de la API
 
-Carpeta: [apps/api/src/modules/menu](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/api/src/modules/menu) · 10 archivos de código y 11 de pruebas.
+- [[GET ∕api∕menu]]
+- [[POST ∕api∕menu∕categories∕{id}∕deactivate]]
+- [[POST ∕api∕menu∕categories∕{id}∕reactivate]]
+- [[POST ∕api∕menu∕products∕{id}∕deactivate]]
+- [[POST ∕api∕menu∕products∕{id}∕reactivate]]
+- [[GET ∕api∕menu∕admin]]
+- [[POST ∕api∕menu∕categories]]
+- [[PUT ∕api∕menu∕categories∕{id}]]
+- [[POST ∕api∕menu∕products]]
+- [[PUT ∕api∕menu∕products∕{id}]]
 
-| Método | Ruta |
-| --- | --- |
-| GET | `/api/menu` |
-| POST | `/api/menu/categories/:id/deactivate` |
-| POST | `/api/menu/categories/:id/reactivate` |
-| POST | `/api/menu/products/:id/deactivate` |
-| POST | `/api/menu/products/:id/reactivate` |
-| GET | `/api/menu/admin` |
-| POST | `/api/menu/categories` |
-| PUT | `/api/menu/categories/:id` |
-| POST | `/api/menu/products` |
-| PUT | `/api/menu/products/:id` |
+## Pantallas
 
-- `categories.repository.ts`
-- `categories.service.ts`
-- `index.ts`
-- `menu.routes.ts`
-- `menu.views.ts`
-- `official-menu.cli.ts`
-- `official-menu.data.ts`
-- `official-menu.service.ts`
-- `products.repository.ts`
-- `products.service.ts`
+- [[Pantalla ∕menu∕administrar]]
+- [[Pantalla ∕menu]]
 
-### Tablas que usa
+## Tablas
 
-- `categories` (002_menu.sql)
-- `products` (002_menu.sql)
+- [[Tabla categories]]
+- [[Tabla products]]
 
-Ver [[Base de datos]].
+## API — [carpeta](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/api/src/modules/menu)
 
-## Interfaz
+- [[categories.repository.ts (api menu)]]
+- [[categories.service.ts (api menu)]]
+- [[index.ts (api menu)]]
+- [[menu.routes.ts (api menu)]]
+- [[menu.views.ts (api menu)]]
+- [[official-menu.cli.ts (api menu)]]
+- [[official-menu.data.ts (api menu)]]
+- [[official-menu.service.ts (api menu)]]
+- [[products.repository.ts (api menu)]]
+- [[products.service.ts (api menu)]]
 
-Carpeta: [apps/web/src/modules/menu](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/web/src/modules/menu) · 15 archivos de código y 10 de pruebas.
+## Interfaz — [carpeta](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/web/src/modules/menu)
 
-| Ruta | Página | Roles | Enlace de inicio |
-| --- | --- | --- | --- |
-| `/menu/administrar` | MenuAdminPage | owner | Administrar menú |
-| `/menu` | MenuPage | owner, cashier | Ver menú |
-
-- **api/** `MenuClientProvider.tsx`, `menu-client.ts`
-- **components/** `CategoryForm.tsx`, `CurrentMenuList.tsx`, `MenuAdminList.tsx`, `ProductForm.tsx`, `SaveStatus.tsx`, `category-anchor.ts`
-- **dev/** `ScenarioPicker.tsx`, `fixtures.ts`, `menu-demo-client.ts`
-- **(raíz)** `index.ts`, `menu.css`
-- **pages/** `MenuAdminPage.tsx`, `MenuPage.tsx`
+- [[MenuClientProvider.tsx (web menu api)]]
+- [[menu-client.ts (web menu api)]]
+- [[CategoryForm.tsx (web menu components)]]
+- [[CurrentMenuList.tsx (web menu components)]]
+- [[MenuAdminList.tsx (web menu components)]]
+- [[ProductForm.tsx (web menu components)]]
+- [[SaveStatus.tsx (web menu components)]]
+- [[category-anchor.ts (web menu components)]]
+- [[ScenarioPicker.tsx (web menu dev)]]
+- [[fixtures.ts (web menu dev)]]
+- [[menu-demo-client.ts (web menu dev)]]
+- [[index.ts (web menu)]]
+- [[MenuAdminPage.tsx (web menu pages)]]
+- [[MenuPage.tsx (web menu pages)]]

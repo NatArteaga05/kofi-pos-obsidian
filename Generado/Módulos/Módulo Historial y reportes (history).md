@@ -18,43 +18,52 @@ tags:
 
 ## Contrato
 
-- [packages/contracts/src/history.ts](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/packages/contracts/src/history.ts) — ver [[Contratos]]
+- [[history.ts (contracts)]] — ver [[Contratos]]
 
-## API
+## Rutas de la API
 
-Carpeta: [apps/api/src/modules/history](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/api/src/modules/history) · 4 archivos de código y 5 de pruebas.
+- [[GET ∕api∕history∕day]]
+- [[GET ∕api∕history∕month]]
+- [[GET ∕api∕history∕sales∕{number}]]
+- [[GET ∕api∕history∕sales∕{resto}]]
 
-| Método | Ruta |
-| --- | --- |
-| GET | `/api/history/day` |
-| GET | `/api/history/month` |
-| GET | `/api/history/sales/:number` |
-| GET | `/api/history/sales/*` |
+## Pantallas
 
-- `history.report.ts`
-- `history.routes.ts`
-- `history.service.ts`
-- `index.ts`
+- [[Pantalla ∕ventas]]
+- [[Pantalla ∕ventas∕mes]]
+- [[Pantalla ∕ventas∕{numero}]]
 
-### Tablas que usa
+## Tablas
 
-_Ninguna._
+_Ninguno._
 
-Ver [[Base de datos]].
+## API — [carpeta](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/api/src/modules/history)
 
-## Interfaz
+- [[history.report.ts (api history)]]
+- [[history.routes.ts (api history)]]
+- [[history.service.ts (api history)]]
+- [[index.ts (api history)]]
 
-Carpeta: [apps/web/src/modules/history](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/web/src/modules/history) · 22 archivos de código y 16 de pruebas.
+## Interfaz — [carpeta](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/web/src/modules/history)
 
-| Ruta | Página | Roles | Enlace de inicio |
-| --- | --- | --- | --- |
-| `/ventas` | DayHistoryPage | owner | Historial de ventas |
-| `/ventas/mes` | MonthHistoryPage | owner | — |
-| `/ventas/:numero` | SaleDetailPage | owner | — |
-
-- **api/** `HistoryClientProvider.tsx`, `history-client.ts`
-- **components/** `HistoryTimingObserver.tsx`, `MonthDaysTable.tsx`, `PeriodTotals.tsx`, `QueryStatus.tsx`, `SaleDetailView.tsx`, `SaleSearch.tsx`, `SalesList.tsx`, `counts.ts`
-- **dev/** `ScenarioPicker.tsx`, `demo-calendar.ts`, `fixtures.ts`, `history-demo-client.ts`
-- **(raíz)** `history.css`, `index.ts`
-- **pages/** `DayHistoryPage.tsx`, `MonthHistoryPage.tsx`, `SaleDetailPage.tsx`
-- **state/** `history-timing.ts`, `useHistoryQuery.ts`, `useHistoryTiming.ts`
+- [[HistoryClientProvider.tsx (web history api)]]
+- [[history-client.ts (web history api)]]
+- [[HistoryTimingObserver.tsx (web history components)]]
+- [[MonthDaysTable.tsx (web history components)]]
+- [[PeriodTotals.tsx (web history components)]]
+- [[QueryStatus.tsx (web history components)]]
+- [[SaleDetailView.tsx (web history components)]]
+- [[SaleSearch.tsx (web history components)]]
+- [[SalesList.tsx (web history components)]]
+- [[counts.ts (web history components)]]
+- [[ScenarioPicker.tsx (web history dev)]]
+- [[demo-calendar.ts (web history dev)]]
+- [[fixtures.ts (web history dev)]]
+- [[history-demo-client.ts (web history dev)]]
+- [[index.ts (web history)]]
+- [[DayHistoryPage.tsx (web history pages)]]
+- [[MonthHistoryPage.tsx (web history pages)]]
+- [[SaleDetailPage.tsx (web history pages)]]
+- [[history-timing.ts (web history state)]]
+- [[useHistoryQuery.ts (web history state)]]
+- [[useHistoryTiming.ts (web history state)]]

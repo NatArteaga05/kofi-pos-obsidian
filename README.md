@@ -26,8 +26,10 @@ Requiere Node 24. No tiene dependencias.
 | Carpeta o nota | Contenido | ¿Se reescribe? |
 | --- | --- | --- |
 | `Kofi POS - mapa del proyecto.md` | Nota central: especificaciones, módulos y vistas | Sí |
-| `Generado/Especificaciones/` | Una nota por `specs/NNN-*`: historias, RF, RNF, decisiones, tareas, PR y E2E | Sí |
-| `Generado/Módulos/` | Una nota por módulo: archivos de API e interfaz, rutas, tablas y contrato | Sí |
+| `Generado/Especificaciones/` | Una nota por `specs/NNN-*` y, en `SPEC-NNN/`, una por historia, RF, RNF, decisión y tarea | Sí |
+| `Generado/Código/` | Una nota por archivo de código (sin pruebas unitarias), con lo que importa y lo que lo importa | Sí |
+| `Generado/Rutas/`, `Pantallas/`, `Tablas/`, `Principios/`, `PRs/` | Una nota por ruta de la API, pantalla, tabla, principio de la constitución y PR | Sí |
+| `Generado/Módulos/` | Una nota por módulo: archivos de API e interfaz, rutas, pantallas, tablas y contrato | Sí |
 | `Generado/Documentos/` | Copia de `docs/` y `AGENTS.md` con los enlaces convertidos a la bóveda | Sí |
 | `Generado/Rutas.md`, `Base de datos.md`, `Contratos.md`, `Historial de PRs.md` | Vistas transversales | Sí |
 | `Notas/` | Tus notas | **No** |
@@ -36,4 +38,8 @@ No edites `Generado/` ni el mapa: los cambios se pierden en la próxima ejecuci�
 
 ## Grafo
 
-Los colores del grafo salen de las etiquetas: `#mapa`, `#especificacion`, `#modulo`, `#documento`, `#base-datos`, `#rutas`, `#contrato` e `#historial`.
+Cada pieza del proyecto es un nodo, y sus enlaces salen de las referencias reales: el RF que cita una tarea, la decisión que resuelve un RF, el archivo que nombra una tarea, los imports entre archivos, las tablas que consulta cada archivo, el PR que hizo cada tarea…
+
+Los colores salen de las etiquetas: `#mapa`, `#especificacion`, `#historia`, `#requisito`, `#rnf`, `#decision`, `#tarea`, `#principio`, `#documento`, `#modulo`, `#archivo/api`, `#archivo/web`, `#archivo/contracts`, `#archivo/e2e`, `#ruta-api`, `#pantalla`, `#tabla` y `#pr`.
+
+Para ver una sola capa, escribe en el filtro del grafo, por ejemplo, `tag:#archivo` (el código y sus imports) o `-tag:#tarea -tag:#pr` (sin tareas ni PR).

@@ -18,39 +18,40 @@ tags:
 
 ## Contrato
 
-- [packages/contracts/src/dashboard.ts](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/packages/contracts/src/dashboard.ts) — ver [[Contratos]]
+- [[dashboard.ts (contracts)]] — ver [[Contratos]]
 
-## API
+## Rutas de la API
 
-Carpeta: [apps/api/src/modules/dashboard](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/api/src/modules/dashboard) · 4 archivos de código y 4 de pruebas.
+- [[GET ∕api∕dashboard∕today]]
+- [[GET ∕api∕dashboard∕month]]
 
-| Método | Ruta |
-| --- | --- |
-| GET | `/api/dashboard/today` |
-| GET | `/api/dashboard/month` |
+## Pantallas
 
-- `dashboard.routes.ts`
-- `dashboard.service.ts`
-- `dashboard.summary.ts`
-- `index.ts`
+- [[Pantalla ∕resumen]]
 
-### Tablas que usa
+## Tablas
 
-_Ninguna._
+_Ninguno._
 
-Ver [[Base de datos]].
+## API — [carpeta](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/api/src/modules/dashboard)
 
-## Interfaz
+- [[dashboard.routes.ts (api dashboard)]]
+- [[dashboard.service.ts (api dashboard)]]
+- [[dashboard.summary.ts (api dashboard)]]
+- [[index.ts (api dashboard)]]
 
-Carpeta: [apps/web/src/modules/dashboard](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/web/src/modules/dashboard) · 14 archivos de código y 8 de pruebas.
+## Interfaz — [carpeta](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/web/src/modules/dashboard)
 
-| Ruta | Página | Roles | Enlace de inicio |
-| --- | --- | --- | --- |
-| `/resumen` | DashboardPage | owner, cashier | Resumen de ventas |
-
-- **api/** `DashboardClientProvider.tsx`, `dashboard-client.ts`
-- **components/** `DailySalesTable.tsx`, `MonthSummarySection.tsx`, `PeriodSummaryView.tsx`, `TodaySummarySection.tsx`, `counts.ts`
-- **dev/** `ScenarioPicker.tsx`, `dashboard-demo-client.ts`, `fixtures.ts`
-- **(raíz)** `index.ts`
-- **pages/** `DashboardPage.css`, `DashboardPage.tsx`
-- **state/** `useDashboardSummaries.ts`
+- [[DashboardClientProvider.tsx (web dashboard api)]]
+- [[dashboard-client.ts (web dashboard api)]]
+- [[DailySalesTable.tsx (web dashboard components)]]
+- [[MonthSummarySection.tsx (web dashboard components)]]
+- [[PeriodSummaryView.tsx (web dashboard components)]]
+- [[TodaySummarySection.tsx (web dashboard components)]]
+- [[counts.ts (web dashboard components)]]
+- [[ScenarioPicker.tsx (web dashboard dev)]]
+- [[dashboard-demo-client.ts (web dashboard dev)]]
+- [[fixtures.ts (web dashboard dev)]]
+- [[index.ts (web dashboard)]]
+- [[DashboardPage.tsx (web dashboard pages)]]
+- [[useDashboardSummaries.ts (web dashboard state)]]

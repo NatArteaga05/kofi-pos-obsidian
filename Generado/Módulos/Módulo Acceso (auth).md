@@ -18,48 +18,50 @@ tags:
 
 ## Contrato
 
-- [packages/contracts/src/auth.ts](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/packages/contracts/src/auth.ts) — ver [[Contratos]]
+- [[auth.ts (contracts)]] — ver [[Contratos]]
 
-## API
+## Rutas de la API
 
-Carpeta: [apps/api/src/modules/auth](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/api/src/modules/auth) · 10 archivos de código y 8 de pruebas.
+- [[POST ∕api∕auth∕logout]]
+- [[GET ∕api∕auth∕session]]
+- [[POST ∕api∕auth∕login]]
 
-| Método | Ruta |
-| --- | --- |
-| POST | `/api/auth/logout` |
-| GET | `/api/auth/session` |
-| POST | `/api/auth/login` |
+## Pantallas
 
-- `accounts.cli.ts`
-- `accounts.service.ts`
-- `auth.cookie.ts`
-- `auth.hook.ts`
-- `auth.routes.ts`
-- `auth.service.ts`
-- `index.ts`
-- `passwords.service.ts`
-- `sessions.repository.ts`
-- `users.repository.ts`
+- [[Pantalla ∕ingresar]]
+- [[Pantalla ∕]]
 
-### Tablas que usa
+## Tablas
 
-- `users` (001_auth.sql)
-- `failed_logins` (001_auth.sql)
-- `sessions` (001_auth.sql)
+- [[Tabla users]]
+- [[Tabla failed_logins]]
+- [[Tabla sessions]]
 
-Ver [[Base de datos]].
+## API — [carpeta](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/api/src/modules/auth)
 
-## Interfaz
+- [[accounts.cli.ts (api auth)]]
+- [[accounts.service.ts (api auth)]]
+- [[auth.cookie.ts (api auth)]]
+- [[auth.hook.ts (api auth)]]
+- [[auth.routes.ts (api auth)]]
+- [[auth.service.ts (api auth)]]
+- [[index.ts (api auth)]]
+- [[passwords.service.ts (api auth)]]
+- [[sessions.repository.ts (api auth)]]
+- [[users.repository.ts (api auth)]]
 
-Carpeta: [apps/web/src/modules/auth](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/web/src/modules/auth) · 16 archivos de código y 11 de pruebas.
+## Interfaz — [carpeta](https://github.com/Tutuma-jar/kofi-pos-v2/tree/develop/apps/web/src/modules/auth)
 
-| Ruta | Página | Roles | Enlace de inicio |
-| --- | --- | --- | --- |
-| `/ingresar` | LoginPage | pública | — |
-| `/` | HomePage | owner, cashier | — |
-
-- **api/** `auth-client.ts`, `return-to.ts`
-- **components/** `AuthenticatedLayout.css`, `AuthenticatedLayout.tsx`, `LoginForm.tsx`, `RequireSession.tsx`, `SessionProvider.tsx`, `useSession.ts`
-- **dev/** `ScenarioPicker.tsx`, `auth-demo-client.ts`, `fixtures.ts`
-- **(raíz)** `index.ts`
-- **pages/** `HomePage.css`, `HomePage.tsx`, `LoginPage.css`, `LoginPage.tsx`
+- [[auth-client.ts (web auth api)]]
+- [[return-to.ts (web auth api)]]
+- [[AuthenticatedLayout.tsx (web auth components)]]
+- [[LoginForm.tsx (web auth components)]]
+- [[RequireSession.tsx (web auth components)]]
+- [[SessionProvider.tsx (web auth components)]]
+- [[useSession.ts (web auth components)]]
+- [[ScenarioPicker.tsx (web auth dev)]]
+- [[auth-demo-client.ts (web auth dev)]]
+- [[fixtures.ts (web auth dev)]]
+- [[index.ts (web auth)]]
+- [[HomePage.tsx (web auth pages)]]
+- [[LoginPage.tsx (web auth pages)]]

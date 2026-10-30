@@ -20,6 +20,8 @@ Repositorio: [Tutuma-jar/kofi-pos-v2](https://github.com/Tutuma-jar/kofi-pos-v2)
 - [[Arquitectura]] — [docs/architecture.md](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/docs/architecture.md)
 - [[Reglas de trabajo (AGENTS)]] — [AGENTS.md](https://github.com/Tutuma-jar/kofi-pos-v2/blob/develop/AGENTS.md)
 
+Principios: [[Principio 1 — Stack mínimo|Stack mínimo]] · [[Principio 2 — Especificación antes que código|Especificación antes que código]] · [[Principio 3 — Lógica separada de la interfaz|Lógica separada de la interfaz]] · [[Principio 4 — Tests primero|Tests primero]] · [[Principio 5 — Persistencia segura|Persistencia segura]] · [[Principio 6 — Idioma|Idioma]]
+
 ## Especificaciones
 
 | Especificación | Estado | Tareas | Avance | Depende de | PRs |
@@ -60,22 +62,45 @@ graph LR
   S004 --> S007
 ```
 
-## Módulos del código
+## Código
 
-| Módulo | Qué hace | Rutas API | Rutas interfaz | Especificaciones |
+| Grupo | Qué hace | Archivos | Rutas API | Pantallas |
 | --- | --- | --- | --- | --- |
-| [[Módulo Acceso (auth)]] | Iniciar y cerrar sesión | 3 | 2 | SPEC-001 |
-| [[Módulo Dashboard (dashboard)]] | Resumen de las ventas del día y del mes | 2 | 1 | SPEC-004 |
-| [[Módulo Historial y reportes (history)]] | Consultar ventas pasadas | 4 | 3 | SPEC-005 |
-| [[Módulo Menú (menu)]] | Administrar productos y categorías | 10 | 2 | SPEC-002, SPEC-003, SPEC-006, SPEC-007 |
-| [[Módulo Ventas (sales)]] | Preparar y registrar ventas pagadas | 2 | 1 | SPEC-003, SPEC-004, SPEC-005, SPEC-007 |
+| [[Módulo Acceso (auth)]] | Iniciar y cerrar sesión | 23 | 3 | 2 |
+| [[Módulo Dashboard (dashboard)]] | Resumen de las ventas del día y del mes | 17 | 2 | 1 |
+| [[Módulo Historial y reportes (history)]] | Consultar ventas pasadas | 25 | 4 | 3 |
+| [[Módulo Menú (menu)]] | Administrar productos y categorías | 24 | 10 | 2 |
+| [[Módulo Ventas (sales)]] | Preparar y registrar ventas pagadas | 26 | 2 | 1 |
+| [[Contratos]] | — | 8 | — | — |
+| [[Código compartido de la API]] | — | 15 | — | — |
+| [[Código compartido de la interfaz]] | — | 9 | — | — |
+| [[Pruebas de punta a punta]] | — | 20 | — | — |
 
 ## Vistas transversales
 
-- [[Rutas]] — 21 rutas de la API y 9 de la interfaz.
+- [[Rutas]] — 21 rutas de la API y 9 pantallas.
 - [[Base de datos]] — 8 tablas en 3 migraciones.
 - [[Contratos]] — 8 archivos en `packages/contracts`.
 - [[Historial de PRs]] — 54 commits en `develop`.
+
+## Nodos del grafo
+
+En el grafo (Ctrl+G), filtra por etiqueta para ver una sola capa, por ejemplo `tag:#requisito OR tag:#decision`, o quita las tareas con `-tag:#tarea`.
+
+| Tipo | Notas | Etiqueta |
+| --- | --- | --- |
+| Especificaciones | 7 | #especificacion |
+| Historias de usuario | 14 | #historia |
+| Requisitos funcionales | 80 | #requisito |
+| Requisitos no funcionales | 28 | #rnf |
+| Decisiones técnicas | 83 | #decision |
+| Tareas | 218 | #tarea |
+| Archivos de código | 167 | #archivo |
+| Rutas de la API | 21 | #ruta-api |
+| Pantallas | 9 | #pantalla |
+| Tablas | 8 | #tabla |
+| Principios | 6 | #principio |
+| Pull requests | 51 | #pr |
 
 ## Notas propias
 
